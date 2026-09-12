@@ -1,0 +1,36 @@
+{
+  "name": "express-postgres-starter",
+  "version": "1.0.0",
+  "description": "A starter template for Express + Postgres (via Docker) Node.js TypeScript services.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node dist/index.js",
+    "pretest": "tsc -p tsconfig.test.json",
+    "test": "jest",
+    "test:watch": "concurrently -n tsc,jest -k \"tsc -p tsconfig.test.json --watch --preserveWatchOutput\" \"jest --watchAll\"",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.13.4",
+    "@types/pg": "^8.23.1",
+    "@types/supertest": "^7.2.1",
+    "concurrently": "^10.0.5",
+    "jest": "^30.5.1",
+    "prettier": "^3.9.6",
+    "supertest": "^7.2.2",
+    "typescript": "^7.0.2"
+  }
+}
