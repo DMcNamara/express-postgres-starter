@@ -6,9 +6,11 @@
   "scripts": {
     "build": "tsc",
     "start": "npm run build && node dist/index.js",
-    "pretest": "tsc -p tsconfig.test.json",
+    "dev": "node --watch -r ts-node/register src/index.ts",
     "test": "jest",
-    "test:watch": "concurrently -n tsc,jest -k \"tsc -p tsconfig.test.json --watch --preserveWatchOutput\" \"jest --watchAll\"",
+    "test:watch": "jest --watchAll",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "db:up": "docker compose up -d",
     "db:down": "docker compose down"
   },
@@ -22,15 +24,21 @@
     "pg": "^8.23.0"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/express": "^5.0.6",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.13.4",
     "@types/pg": "^8.23.1",
     "@types/supertest": "^7.2.1",
-    "concurrently": "^10.0.5",
+    "eslint": "^10.10.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.12.0",
     "jest": "^30.5.1",
     "prettier": "^3.9.6",
     "supertest": "^7.2.2",
-    "typescript": "^7.0.2"
+    "ts-jest": "^29.4.12",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.70.0"
   }
 }

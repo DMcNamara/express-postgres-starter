@@ -1,11 +1,8 @@
 // tsconfig.test.json
-// Used to compile source + spec files to plain JS so Jest can run them
-// without needing ts-jest (which requires TypeScript's compiler API,
-// unavailable in TypeScript 7's native compiler).
+// Used by ts-jest to type-check and transform source + spec files on the fly.
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "dist-test",
     "types": ["node", "jest"]
   },
   "include": ["src/**/*"],
